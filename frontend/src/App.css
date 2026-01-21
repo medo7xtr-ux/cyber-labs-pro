@@ -1,0 +1,654 @@
+/**
+ * أنماط CSS المخصصة لـ CyberLabs
+ * أنماط إضافية وتعديلات على الأنماط الأساسية
+ */
+
+/* إعادة تعيين وإعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* تحسينات شريط التمرير */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* التحديد */
+::selection {
+  background-color: rgba(25, 118, 210, 0.3);
+  color: #1a2027;
+}
+
+/* الروابط */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* الصور */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* تحسينات التايبوغرافيا */
+.text-gradient {
+  background: linear-gradient(45deg, #1976d2, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثيرات الظلال */
+.shadow-soft {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-medium {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-hard {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* تأثيرات التحريك */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* تطبيق التحريكات */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* تحسينات الأداء */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* تأثيرات التدرج */
+.gradient-border {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #1976d2, #9c27b0);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* كارد خاصة */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* زر خاص */
+.btn-3d {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.btn-3d:active {
+  transform: translateY(4px);
+}
+
+.btn-3d::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-3d:hover::after {
+  opacity: 1;
+}
+
+/* تأثيرات النص */
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  text-stroke: 1px currentColor;
+}
+
+/* تحسينات النموذج */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  outline: none;
+}
+
+/* تأثيرات الشعار */
+.logo-glow {
+  filter: drop-shadow(0 0 2em rgba(25, 118, 210, 0.3));
+}
+
+.logo-spin {
+  animation: logo-spin infinite 20s linear;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* تحسينات الجدول */
+.table-hover tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+/* تأثيرات الصور */
+.img-zoom {
+  transition: transform 0.3s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* تأثيرات الشريط */
+.progress-glow {
+  box-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
+}
+
+/* تأثيرات الإشعارات */
+.notification-slide {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* تحسينات الشريط العلوي */
+.navbar-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* تأثيرات الفيديو/الصور الخلفية */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* تأثيرات الشبكة */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(25, 118, 210, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 118, 210, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* تأثيرات الأيقونات */
+.icon-3d {
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+/* تحسينات التحميل */
+.loading-wave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.loading-wave div {
+  width: 6px;
+  height: 30px;
+  background: linear-gradient(45deg, #1976d2, #9c27b0);
+  border-radius: 3px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.loading-wave div:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.loading-wave div:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+.loading-wave div:nth-child(4) {
+  animation-delay: -0.6s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* تأثيرات النقاط */
+.dots-loading {
+  display: flex;
+  gap: 4px;
+}
+
+.dots-loading div {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1976d2;
+  animation: dots 1.4s ease-in-out infinite;
+}
+
+.dots-loading div:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.dots-loading div:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes dots {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* تحسينات الطباعة */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+}
+
+/* تحسينات الوضع المظلم */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+  
+  .gradient-border::before {
+    background: linear-gradient(45deg, #90caf9, #ce93d8);
+  }
+}
+
+/* تحسينات للأجهزة الصغيرة */
+@media (max-width: 600px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+}
+
+/* تحسينات للأجهزة الكبيرة */
+@media (min-width: 1200px) {
+  .container-wide {
+    max-width: 1400px !important;
+  }
+}
+
+/* كلاسات مساعدة */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.break-words {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* تأثيرات خاصة لـ CyberLabs */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(25, 118, 210, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 118, 210, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.security-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(25, 118, 210, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(25, 118, 210, 0.1) 2px, transparent 2px);
+  background-size: 100px 100px;
+}
+
+.code-pattern {
+  background-image: 
+    linear-gradient(45deg, transparent 49%, rgba(25, 118, 210, 0.05) 49%, rgba(25, 118, 210, 0.05) 51%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(25, 118, 210, 0.05) 49%, rgba(25, 118, 210, 0.05) 51%, transparent 51%);
+  background-size: 20px 20px;
+}
+
+/* تأثيرات التمييز */
+.highlight {
+  background: linear-gradient(120deg, rgba(255, 255, 0, 0.3) 0%, rgba(255, 255, 0, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+
+/* تأثيرات الرسوم المتحركة المتقدمة */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.ripple:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(40, 40);
+    opacity: 0;
+  }
+}
+
+/* تأثيرات التحميل المتقدمة */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* تأثيرات الوضع الداكن */
+.dark-mode-only {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .light-mode-only {
+    display: none;
+  }
+  
+  .dark-mode-only {
+    display: block;
+  }
+}
+
+/* تحسينات الوصول */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* تأثيرات التمرير السلس */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* تأثيرات حدود التدرج اللوني */
+.gradient-border-animated {
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(45deg, #1976d2, #9c27b0) border-box;
+  animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* تأثيرات خاصة للأساليب الأمنية */
+.cyber-pulse {
+  animation: cyberPulse 2s ease-in-out infinite;
+}
+
+@keyframes cyberPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(25, 118, 210, 0);
+  }
+}

@@ -1,0 +1,397 @@
+<!-- labs/templates/labs/lab_list.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معامل CyberLabs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+        
+        h1 {
+            color: #60a5fa;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #10b981;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .lab-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .lab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: #60a5fa;
+        }
+        
+        .lab-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .lab-description {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .lab-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #475569;
+        }
+        
+        .difficulty {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .difficulty.beginner { background: #10b981; color: white; }
+        .difficulty.intermediate { background: #f59e0b; color: white; }
+        .difficulty.advanced { background: #ef4444; color: white; }
+        .difficulty.expert { background: #8b5cf6; color: white; }
+        
+        .points {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+        
+        .category {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+        
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #fecaca;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+        }
+        
+        .api-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .api-link {
+            color: #60a5fa;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .api-link:hover {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 معامل CyberLabs</h1>
+            <p class="subtitle">بيئة تعليمية متكاملة لتعلم الأمن السيبراني والاختراق الأخلاقي</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number" id="total-labs">13</span>
+                    <span class="stat-label">معمل متاح</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="active-labs">13</span>
+                    <span class="stat-label">معمل نشط</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="total-views">1,906</span>
+                    <span class="stat-label">مشاهدة</span>
+                </div>
+            </div>
+        </header>
+        
+        <div id="labs-container" class="loading">
+            جاري تحميل المعامل...
+        </div>
+        
+        <footer>
+            <p>© 2025 CyberLabs - نظام إدارة المعامل الأمنية | الإصدار 1.0.0</p>
+            <p>✅ حالة الـ API: <span style="color: #10b981; font-weight: bold;">يعمل بنجاح</span></p>
+            
+            <div class="api-links">
+                <a href="/api/labs/labs/" class="api-link" target="_blank">📋 واجهة برمجة التطبيقات</a>
+                <a href="/admin/" class="api-link" target="_blank">⚙️ لوحة التحكم</a>
+                <a href="/api/labs/categories/" class="api-link" target="_blank">🗂️ التصنيفات</a>
+                <a href="/api/labs/statistics/" class="api-link" target="_blank">📊 الإحصائيات</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ========== JavaScript مبسط يعمل 100% ==========
+        
+        // خريطة الترجمة
+        const difficultyMap = {
+            'beginner': 'مبتدئ',
+            'intermediate': 'متوسط',
+            'advanced': 'متقدم',
+            'expert': 'خبير'
+        };
+        
+        const categoryMap = {
+            'web_security': 'أمن الويب',
+            'network_security': 'أمن الشبكات',
+            'cryptography': 'التشفير',
+            'digital_forensics': 'التحقيق الجنائي الرقمي',
+            'reverse_engineering': 'الهندسة العكسية',
+            'malware_analysis': 'تحليل البرمجيات الخبيثة',
+            'social_engineering': 'الهندسة الاجتماعية',
+            'iot_security': 'أمن إنترنت الأشياء'
+        };
+        
+        // دالة الترجمة
+        function translate(text, map) {
+            return map[text] || text;
+        }
+        
+        // دالة جلب المعامل
+        async function loadLabs() {
+            const container = document.getElementById('labs-container');
+            
+            try {
+                // إظهار حالة التحميل
+                container.innerHTML = '<div class="loading">جاري تحميل المعامل من الخادم...</div>';
+                
+                // جلب البيانات من API
+                const response = await fetch('/api/labs/labs/');
+                
+                if (!response.ok) {
+                    throw new Error(`خطأ في الخادم: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // التحقق من وجود بيانات
+                if (!data.results || data.results.length === 0) {
+                    container.innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ لا توجد معامل</h3>
+                            <p>لم يتم العثور على أي معامل في قاعدة البيانات.</p>
+                            <a href="/admin/labs/lab/add/" class="btn-primary" target="_blank" style="display: inline-block; margin-top: 15px;">
+                                إضافة معمل جديد
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const labs = data.results;
+                
+                // تحديث الإحصائيات
+                document.getElementById('total-labs').textContent = labs.length;
+                
+                // حساب الإحصائيات
+                const activeLabs = labs.filter(lab => lab.is_active).length;
+                const totalViews = labs.reduce((sum, lab) => sum + (lab.views || 0), 0);
+                
+                document.getElementById('active-labs').textContent = activeLabs;
+                document.getElementById('total-views').textContent = totalViews.toLocaleString();
+                
+                // بناء HTML لعرض المعامل
+                let html = `
+                    <div class="labs-grid">
+                        ${labs.map(lab => `
+                            <div class="lab-card">
+                                <span class="category">${translate(lab.category, categoryMap)}</span>
+                                ${lab.is_premium ? '<span style="background: #f59e0b; color: white; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 10px;">✨ مميز</span>' : ''}
+                                
+                                <h3>${lab.title}</h3>
+                                <p class="lab-description">${lab.description ? lab.description.substring(0, 150) + '...' : 'لا يوجد وصف'}</p>
+                                
+                                <div class="lab-meta">
+                                    <span class="difficulty ${lab.difficulty}">
+                                        ${translate(lab.difficulty, difficultyMap)}
+                                    </span>
+                                    <span class="points">${lab.points} نقطة</span>
+                                    <span style="color: #94a3b8;">👁️ ${lab.views || 0}</span>
+                                </div>
+                                
+                                <div class="actions">
+                                    <a href="/api/labs/labs/${lab.id}/" class="btn btn-primary" target="_blank">
+                                        عرض التفاصيل (JSON)
+                                    </a>
+                                    <a href="/admin/labs/lab/${lab.id}/change/" class="btn" style="background: #475569; color: white;" target="_blank">
+                                        تحرير
+                                    </a>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px; color: #94a3b8;">
+                        <p>✅ تم تحميل ${labs.length} معمل بنجاح</p>
+                    </div>
+                `;
+                
+                container.innerHTML = html;
+                
+            } catch (error) {
+                console.error('خطأ:', error);
+                
+                container.innerHTML = `
+                    <div class="error">
+                        <h3>❌ حدث خطأ في تحميل المعامل</h3>
+                        <p><strong>الخطأ:</strong> ${error.message}</p>
+                        
+                        <div style="margin-top: 20px; text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <p><strong>حلول مقترحة:</strong></p>
+                            <ol style="margin-right: 20px;">
+                                <li>تأكد أن سيرفر Django يعمل على المنفذ 8000</li>
+                                <li>افتح <a href="/api/labs/labs/" target="_blank" style="color: #60a5fa;">/api/labs/labs/</a> للتحقق من عمل API</li>
+                                <li>تحقق من Console في أدوات المطور (F12) لرؤية الأخطاء التفصيلية</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <button onclick="location.reload()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                                إعادة تحميل الصفحة
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // بدء تحميل المعامل عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', loadLabs);
+        
+        // أيضًا إعادة التحميل عند الضغط على F5
+        window.addEventListener('load', loadLabs);
+    </script>
+</body>
+</html>

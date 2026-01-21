@@ -1,0 +1,31 @@
+[
+  {
+    "model": "labs.lab",
+    "pk": 1,
+    "fields": {
+      "title": "معمل أمن الويب",
+      "slug": "web-security-lab-1",
+      "description": "معمل تعليمي لأمن تطبيقات الويب",
+      "overview": "",
+      "learning_objectives": "",
+      "category": "web_security",
+      "difficulty": "beginner",
+      "points": 100,
+      "estimated_time": 60,
+      "thumbnail": null,
+      "lab_guide": null,
+      "starter_files": null,
+      "solution_file": null,
+      "is_premium": false,
+      "is_active": true,
+      "requires_vm": false,
+      "vm_image": "",
+      "views": 150,
+      "completions": 75,
+      "average_score": 78.5,
+      "created_at": "2024-01-01T10:00:00Z",
+      "updated_at": "2024-01-01T10:00:00Z",
+      "published_at": null
+    }
+  }
+]

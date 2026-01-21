@@ -1,0 +1,346 @@
+from django.db.models import Sum
+from rest_framework import viewsets, permissions, status, filters
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
+from django_filters.rest_framework import DjangoFilterBackend
+from django.db.models import Count, Avg, Q
+from django.shortcuts import get_object_or_404
+
+from labs.models import Lab, Challenge, Submission, UserLabProgress, LabReview
+from .serializers import (
+    LabSerializer, ChallengeSerializer, SubmissionSerializer,
+    UserLabProgressSerializer, LabReviewSerializer,
+    SubmitChallengeSerializer, LabSearchSerializer, UserProgressSerializer
+)
+
+
+class LabViewSet(viewsets.ModelViewSet):
+    """ViewSet للمعامل"""
+    
+    queryset = Lab.objects.filter(is_active=True)
+    serializer_class = LabSerializer
+    permission_classes = [permissions.AllowAny]  # ← تغيير من IsAuthenticatedOrReadOnly
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['category', 'difficulty', 'is_premium']
+    search_fields = ['title', 'description', 'overview']
+    ordering_fields = ['created_at', 'points', 'views', 'completions']
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        # فلترة للمستخدمين العاديين (لا يروا المعامل المميزة إلا إذا كانوا مشتركين)
+        # تحقق أولاً من أن المستخدم غير مسجل دخول
+        if not self.request.user.is_authenticated:
+            queryset = queryset.filter(is_active=False)
+        # إذا كان المستخدم مسجل دخول لكن ليس موظفاً أو مشرفاً
+        elif not (self.request.user.is_staff or self.request.user.is_superuser):
+            queryset = queryset.filter(is_active=False)
+        # الموظفون والمشرفون يرون كل المعامل
+        
+        return queryset
+    
+    def retrieve(self, request, *args, **kwargs):
+        """زيادة عدد المشاهدات عند عرض المعمل"""
+        instance = self.get_object()
+        instance.views += 1
+        instance.save()
+        return super().retrieve(request, *args, **kwargs)
+    
+    @action(detail=True, methods=['get'])
+    def challenges(self, request, pk=None):
+        """الحصول على تحديات المعمل"""
+        lab = self.get_object()
+        challenges = lab.challenges.all()
+        serializer = ChallengeSerializer(challenges, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'])
+    def submissions(self, request, pk=None):
+        """الحصول على تسليمات المستخدم للمعمل"""
+        if not request.user.is_authenticated:
+            return Response({'detail': 'يجب تسجيل الدخول'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        lab = self.get_object()
+        submissions = Submission.objects.filter(
+            lab=lab,
+            user=request.user
+        )
+        serializer = SubmissionSerializer(submissions, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['post'])
+    def start(self, request, pk=None):
+        """بدء المعمل"""
+        if not request.user.is_authenticated:
+            return Response({'detail': 'يجب تسجيل الدخول'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        lab = self.get_object()
+        
+        # التحقق إذا كان المستخدم قد بدأ المعمل من قبل
+        progress, created = UserLabProgress.objects.get_or_create(
+            user=request.user,
+            lab=lab,
+            defaults={'is_started': True}
+        )
+        
+        if not created and not progress.is_started:
+            progress.is_started = True
+            progress.save()
+        
+        serializer = UserLabProgressSerializer(progress)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def search(self, request):
+        """بحث في المعامل"""
+        serializer = LabSearchSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
+        
+        queryset = Lab.objects.filter(is_active=True)
+        
+        # تطبيق الفلاتر
+        if serializer.validated_data.get('search'):
+            search = serializer.validated_data['search']
+            queryset = queryset.filter(
+                Q(title__icontains=search) |
+                Q(description__icontains=search) |
+                Q(overview__icontains=search)
+            )
+        
+        if serializer.validated_data.get('category'):
+            queryset = queryset.filter(
+                category=serializer.validated_data['category']
+            )
+        
+        if serializer.validated_data.get('difficulty'):
+            queryset = queryset.filter(
+                difficulty=serializer.validated_data['difficulty']
+            )
+        
+        if serializer.validated_data.get('is_premium') is not None:
+            queryset = queryset.filter(
+                is_premium=serializer.validated_data['is_premium']
+            )
+        
+        # تطبيق التصفية للمستخدمين العاديين
+        if not request.user.is_authenticated or not request.user.is_premium:
+            queryset = queryset.filter(is_premium=False)
+        
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = LabSerializer(page, many=True, context={'request': request})
+            return self.get_paginated_response(serializer.data)
+        
+        serializer = LabSerializer(queryset, many=True, context={'request': request})
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def categories(self, request):
+        """الحصول على جميع التصنيفات"""
+        categories = Lab.objects.filter(is_active=True).values_list(
+            'category', flat=True
+        ).distinct()
+        
+        # الحصول على الاسم المعروض لكل تصنيف
+        category_choices = dict(Lab.CATEGORY_CHOICES)
+        result = []
+        for category in categories:
+            if category in category_choices:
+                result.append({
+                    'value': category,
+                    'label': category_choices[category],
+                    'count': Lab.objects.filter(category=category, is_active=True).count()
+                })
+        
+        return Response(result)
+    
+    @action(detail=False, methods=['get'])
+    def statistics(self, request):
+        """إحصائيات عامة للمعامل"""
+        total_labs = Lab.objects.filter(is_active=True).count()
+        total_challenges = Challenge.objects.count()
+        total_submissions = Submission.objects.count()
+        total_users_completed = UserLabProgress.objects.filter(is_completed=True).count()
+        
+        return Response({
+            'total_labs': total_labs,
+            'total_challenges': total_challenges,
+            'total_submissions': total_submissions,
+            'total_users_completed': total_users_completed,
+        })
+
+
+class ChallengeViewSet(viewsets.ReadOnlyModelViewSet):
+    """ViewSet للتحديات"""
+    
+    queryset = Challenge.objects.all()
+    serializer_class = ChallengeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        # فلترة حسب المعمل
+        lab_id = self.request.query_params.get('lab_id')
+        if lab_id:
+            queryset = queryset.filter(lab_id=lab_id)
+        
+        return queryset
+    
+    @action(detail=True, methods=['post'])
+    def submit(self, request, pk=None):
+        """تقديم حل للتحدي"""
+        if not request.user.is_authenticated:
+            return Response({'detail': 'يجب تسجيل الدخول'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        challenge = self.get_object()
+        serializer = SubmitChallengeSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            # إنشاء تسليم جديد
+            submission_data = {
+                'user': request.user,
+                'lab': challenge.lab,
+                'challenge': challenge,
+                'status': 'pending'
+            }
+            
+            if serializer.validated_data.get('answer'):
+                submission_data['answer'] = serializer.validated_data['answer']
+            
+            if serializer.validated_data.get('code'):
+                submission_data['code'] = serializer.validated_data['code']
+            
+            if serializer.validated_data.get('file'):
+                submission_data['file'] = serializer.validated_data['file']
+            
+            submission = Submission.objects.create(**submission_data)
+            
+            # هنا يمكنك إضافة منطق تصحيح التحدي تلقائياً
+            
+            submission_serializer = SubmissionSerializer(submission)
+            return Response(submission_serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SubmissionViewSet(viewsets.ModelViewSet):
+    """ViewSet للتسليمات"""
+    
+    serializer_class = SubmissionSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
+    
+    def get_queryset(self):
+        """الحصول على تسليمات المستخدم فقط"""
+        queryset = Submission.objects.filter(user=self.request.user)
+        
+        # فلترة حسب المعمل أو التحدي
+        lab_id = self.request.query_params.get('lab_id')
+        if lab_id:
+            queryset = queryset.filter(lab_id=lab_id)
+        
+        challenge_id = self.request.query_params.get('challenge_id')
+        if challenge_id:
+            queryset = queryset.filter(challenge_id=challenge_id)
+        
+        return queryset
+    
+    def perform_create(self, serializer):
+        """إنشاء تسليم جديد"""
+        serializer.save(user=self.request.user)
+    
+    @action(detail=False, methods=['get'])
+    def user_statistics(self, request):
+        """إحصائيات المستخدم"""
+        user = request.user
+        
+        # إحصائيات عامة
+        total_submissions = Submission.objects.filter(user=user).count()
+        correct_submissions = Submission.objects.filter(user=user, is_correct=True).count()
+        total_score = Submission.objects.filter(user=user).aggregate(total=Sum('score'))['total'] or 0
+        
+        # إحصائيات المعامل
+        progress_queryset = UserLabProgress.objects.filter(user=user)
+        total_labs_started = progress_queryset.filter(is_started=True).count()
+        total_labs_completed = progress_queryset.filter(is_completed=True).count()
+        
+        return Response({
+            'total_submissions': total_submissions,
+            'correct_submissions': correct_submissions,
+            'accuracy_rate': (correct_submissions / total_submissions * 100) if total_submissions > 0 else 0,
+            'total_score': total_score,
+            'total_labs_started': total_labs_started,
+            'total_labs_completed': total_labs_completed,
+        })
+
+
+class UserLabProgressViewSet(viewsets.ReadOnlyModelViewSet):
+    """ViewSet لتقدم المستخدم"""
+    
+    serializer_class = UserLabProgressSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get_queryset(self):
+        """الحصول على تقدم المستخدم فقط"""
+        return UserLabProgress.objects.filter(user=self.request.user)
+    
+    @action(detail=False, methods=['get'])
+    def overview(self, request):
+        """نظرة عامة على تقدم المستخدم"""
+        progress = UserLabProgress.objects.filter(user=request.user)
+        
+        # حساب الإحصائيات
+        total_labs = progress.count()
+        completed_labs = progress.filter(is_completed=True).count()
+        total_score = progress.aggregate(total=Sum('total_score'))['total'] or 0
+        
+        # المعامل قيد التقدم
+        in_progress = progress.filter(is_started=True, is_completed=False)
+        
+        serializer = UserProgressSerializer({
+            'total_labs': total_labs,
+            'completed_labs': completed_labs,
+            'completion_rate': (completed_labs / total_labs * 100) if total_labs > 0 else 0,
+            'total_points': total_score,
+            'average_score': (total_score / completed_labs) if completed_labs > 0 else 0,
+        })
+        
+        return Response(serializer.data)
+
+
+class LabReviewViewSet(viewsets.ModelViewSet):
+    """ViewSet لتقييمات المعامل"""
+    
+    serializer_class = LabReviewSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
+    def get_queryset(self):
+        """الحصول على التقييمات العامة أو الخاصة بالمستخدم"""
+        queryset = LabReview.objects.all()
+        
+        # للزوار والمستخدمين العاديين: فقط التقييمات المعتمدة
+        if not self.request.user.is_staff:
+            queryset = queryset.filter(is_approved=True)
+        
+        # فلترة حسب المعمل
+        lab_id = self.request.query_params.get('lab_id')
+        if lab_id:
+            queryset = queryset.filter(lab_id=lab_id)
+        
+        return queryset
+    
+    def perform_create(self, serializer):
+        """إنشاء تقييم جديد"""
+        serializer.save(user=self.request.user)
+    
+    @action(detail=False, methods=['get'])
+    def user_reviews(self, request):
+        """تقييمات المستخدم"""
+        if not request.user.is_authenticated:
+            return Response({'detail': 'يجب تسجيل الدخول'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        reviews = LabReview.objects.filter(user=request.user)
+        serializer = self.get_serializer(reviews, many=True)
+        return Response(serializer.data)

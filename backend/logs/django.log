@@ -1,0 +1,444 @@
+INFO 2025-12-22 17:13:06,017 autoreload 2768 23948 Watching for file changes with StatReloader
+INFO 2025-12-22 17:27:50,737 autoreload 24476 31676 Watching for file changes with StatReloader
+WARNING 2025-12-22 17:27:58,281 log 24476 10396 Not Found: /
+WARNING 2025-12-22 17:27:58,282 basehttp 24476 10396 "GET / HTTP/1.1" 404 2312
+WARNING 2025-12-22 17:27:58,553 log 24476 10396 Not Found: /favicon.ico
+WARNING 2025-12-22 17:27:58,555 basehttp 24476 10396 "GET /favicon.ico HTTP/1.1" 404 2363
+WARNING 2025-12-22 17:30:22,339 log 24476 13996 Not Found: /api/
+WARNING 2025-12-22 17:30:22,340 basehttp 24476 13996 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:22,860 log 24476 29736 Not Found: /api/
+WARNING 2025-12-22 17:30:22,862 basehttp 24476 29736 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:28,449 log 24476 13996 Not Found: /api/
+WARNING 2025-12-22 17:30:28,451 basehttp 24476 13996 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:29,760 log 24476 29736 Not Found: /api/
+WARNING 2025-12-22 17:30:29,761 basehttp 24476 29736 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:35,314 log 24476 13996 Not Found: /api/
+WARNING 2025-12-22 17:30:35,315 basehttp 24476 13996 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:35,329 log 24476 13996 Not Found: /api/
+WARNING 2025-12-22 17:30:35,330 basehttp 24476 13996 "GET /api/ HTTP/1.1" 404 2342
+WARNING 2025-12-22 17:30:35,348 log 24476 13996 Not Found: /api/users/
+WARNING 2025-12-22 17:30:35,350 basehttp 24476 13996 "GET /api/users/ HTTP/1.1" 404 2360
+WARNING 2025-12-22 17:30:35,391 log 24476 13996 Not Found: /api/forum/
+WARNING 2025-12-22 17:30:35,392 basehttp 24476 13996 "GET /api/forum/ HTTP/1.1" 404 2360
+INFO 2025-12-22 17:30:35,445 basehttp 24476 13996 "GET /api/labs/ HTTP/1.1" 200 52
+INFO 2025-12-22 17:36:31,152 autoreload 24476 31676 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 17:36:32,462 autoreload 19860 4232 Watching for file changes with StatReloader
+INFO 2025-12-22 17:38:18,705 autoreload 19860 4232 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 17:38:20,543 autoreload 14596 18084 Watching for file changes with StatReloader
+INFO 2025-12-22 17:41:58,118 autoreload 14596 18084 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 17:42:00,339 autoreload 10964 27676 Watching for file changes with StatReloader
+INFO 2025-12-22 17:45:27,440 autoreload 10964 27676 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 17:45:29,032 autoreload 2680 7008 Watching for file changes with StatReloader
+INFO 2025-12-22 17:48:01,098 autoreload 9408 27820 Watching for file changes with StatReloader
+INFO 2025-12-22 17:51:40,826 autoreload 9408 27820 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\views.py changed, reloading.
+INFO 2025-12-22 17:51:42,367 autoreload 22432 8516 Watching for file changes with StatReloader
+INFO 2025-12-22 17:53:11,972 autoreload 22432 8516 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 17:53:13,263 autoreload 19220 3468 Watching for file changes with StatReloader
+INFO 2025-12-22 17:53:26,440 autoreload 19220 3468 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 17:53:27,589 autoreload 19860 18788 Watching for file changes with StatReloader
+INFO 2025-12-22 17:53:31,751 autoreload 19860 18788 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 17:53:33,315 autoreload 31656 11200 Watching for file changes with StatReloader
+INFO 2025-12-22 17:53:50,695 autoreload 31656 11200 C:\Users\Mohammed\Desktop\new web deepseek\backend\forum\urls.py changed, reloading.
+INFO 2025-12-22 17:53:51,692 autoreload 23616 27716 Watching for file changes with StatReloader
+INFO 2025-12-22 17:54:05,602 autoreload 23616 27716 C:\Users\Mohammed\Desktop\new web deepseek\backend\tutorials\urls.py changed, reloading.
+INFO 2025-12-22 17:54:07,246 autoreload 2864 980 Watching for file changes with StatReloader
+INFO 2025-12-22 17:54:26,028 autoreload 2864 980 C:\Users\Mohammed\Desktop\new web deepseek\backend\reports\urls.py changed, reloading.
+INFO 2025-12-22 17:54:27,295 autoreload 15140 14060 Watching for file changes with StatReloader
+INFO 2025-12-22 17:54:42,602 autoreload 15140 14060 C:\Users\Mohammed\Desktop\new web deepseek\backend\labs\urls.py changed, reloading.
+INFO 2025-12-22 17:54:43,902 autoreload 15696 6468 Watching for file changes with StatReloader
+INFO 2025-12-22 17:55:11,092 autoreload 15696 6468 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\serializers.py changed, reloading.
+INFO 2025-12-22 17:55:12,469 autoreload 22560 1720 Watching for file changes with StatReloader
+INFO 2025-12-22 17:56:45,734 autoreload 26104 20264 Watching for file changes with StatReloader
+INFO 2025-12-22 17:57:49,629 autoreload 31520 31616 Watching for file changes with StatReloader
+INFO 2025-12-22 17:57:57,098 basehttp 31520 10852 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 17:57:57,222 basehttp 31520 10852 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 17:57:57,341 basehttp 31520 10852 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 17:57:57,471 basehttp 31520 10852 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 17:57:57,593 basehttp 31520 10852 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 17:57:57,737 log 31520 10852 Not Found: /api/docs/
+WARNING 2025-12-22 17:57:57,738 basehttp 31520 10852 "GET /api/docs/ HTTP/1.1" 404 3131
+WARNING 2025-12-22 17:58:02,469 log 31520 8756 Not Found: /api/
+WARNING 2025-12-22 17:58:02,470 basehttp 31520 8756 "GET /api/ HTTP/1.1" 404 3116
+WARNING 2025-12-22 17:58:04,199 log 31520 10852 Not Found: /api/
+WARNING 2025-12-22 17:58:04,200 basehttp 31520 10852 "GET /api/ HTTP/1.1" 404 3116
+WARNING 2025-12-22 17:58:08,129 log 31520 10852 Not Found: /api/
+WARNING 2025-12-22 17:58:08,130 basehttp 31520 10852 "GET /api/ HTTP/1.1" 404 3116
+WARNING 2025-12-22 17:58:12,127 log 31520 10852 Not Found: /api/
+WARNING 2025-12-22 17:58:12,128 basehttp 31520 10852 "GET /api/ HTTP/1.1" 404 3116
+WARNING 2025-12-22 17:58:12,144 log 31520 10852 Not Found: /api/
+WARNING 2025-12-22 17:58:12,144 basehttp 31520 10852 "GET /api/ HTTP/1.1" 404 3116
+INFO 2025-12-22 17:58:12,154 basehttp 31520 10852 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 17:58:12,165 basehttp 31520 10852 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 17:58:12,178 basehttp 31520 10852 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:00:48,210 autoreload 31520 31616 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 18:00:49,613 autoreload 25144 17500 Watching for file changes with StatReloader
+INFO 2025-12-22 18:01:17,964 autoreload 25144 17500 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 18:01:19,528 autoreload 29008 18820 Watching for file changes with StatReloader
+INFO 2025-12-22 18:02:29,561 autoreload 29008 18820 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 18:02:31,069 autoreload 1916 6616 Watching for file changes with StatReloader
+INFO 2025-12-22 18:04:11,240 autoreload 1916 6616 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 18:04:12,589 autoreload 22672 19440 Watching for file changes with StatReloader
+INFO 2025-12-22 18:04:31,536 autoreload 26776 31644 Watching for file changes with StatReloader
+INFO 2025-12-22 18:04:41,511 basehttp 26776 27040 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:04:41,627 basehttp 26776 27040 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:04:41,750 basehttp 26776 27040 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:04:41,898 basehttp 26776 27040 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 18:04:42,039 basehttp 26776 27040 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 18:04:42,195 log 26776 27040 Not Found: /api/docs/
+WARNING 2025-12-22 18:04:42,198 basehttp 26776 27040 "GET /api/docs/ HTTP/1.1" 404 3470
+INFO 2025-12-22 18:04:43,319 basehttp 26776 27040 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:04:43,442 basehttp 26776 27040 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:04:43,582 basehttp 26776 27040 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:04:43,704 basehttp 26776 27040 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 18:04:43,827 basehttp 26776 27040 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 18:04:43,966 log 26776 27040 Not Found: /api/docs/
+WARNING 2025-12-22 18:04:43,966 basehttp 26776 27040 "GET /api/docs/ HTTP/1.1" 404 3470
+WARNING 2025-12-22 18:04:45,834 log 26776 27040 Not Found: /api/
+WARNING 2025-12-22 18:04:45,835 basehttp 26776 27040 "GET /api/ HTTP/1.1" 404 3455
+WARNING 2025-12-22 18:04:47,095 log 26776 29868 Not Found: /api/
+WARNING 2025-12-22 18:04:47,096 basehttp 26776 29868 "GET /api/ HTTP/1.1" 404 3455
+WARNING 2025-12-22 18:04:55,283 log 26776 27040 Not Found: /api/
+WARNING 2025-12-22 18:04:55,284 basehttp 26776 27040 "GET /api/ HTTP/1.1" 404 3455
+WARNING 2025-12-22 18:04:55,806 log 26776 29868 Not Found: /api/
+WARNING 2025-12-22 18:04:55,807 basehttp 26776 29868 "GET /api/ HTTP/1.1" 404 3455
+INFO 2025-12-22 18:04:59,778 basehttp 26776 27040 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:04:59,897 basehttp 26776 27040 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:05:00,033 basehttp 26776 27040 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:05:00,163 basehttp 26776 27040 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 18:05:00,291 basehttp 26776 27040 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 18:05:00,427 log 26776 27040 Not Found: /api/docs/
+WARNING 2025-12-22 18:05:00,429 basehttp 26776 27040 "GET /api/docs/ HTTP/1.1" 404 3470
+WARNING 2025-12-22 18:05:07,256 log 26776 27040 Not Found: /api/
+WARNING 2025-12-22 18:05:07,257 basehttp 26776 27040 "GET /api/ HTTP/1.1" 404 3455
+WARNING 2025-12-22 18:05:07,281 log 26776 27040 Not Found: /api/
+WARNING 2025-12-22 18:05:07,283 basehttp 26776 27040 "GET /api/ HTTP/1.1" 404 3455
+INFO 2025-12-22 18:05:07,298 basehttp 26776 27040 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:05:07,318 basehttp 26776 27040 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:05:07,340 basehttp 26776 27040 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:09:59,871 autoreload 26776 31644 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 18:10:01,152 autoreload 4720 17312 Watching for file changes with StatReloader
+INFO 2025-12-22 18:10:18,190 autoreload 21304 8584 Watching for file changes with StatReloader
+INFO 2025-12-22 18:10:27,810 basehttp 21304 7756 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:10:27,927 basehttp 21304 7756 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:10:28,051 basehttp 21304 7756 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:10:28,176 basehttp 21304 7756 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 18:10:28,292 basehttp 21304 7756 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 18:10:28,421 log 21304 7756 Not Found: /api/docs/
+WARNING 2025-12-22 18:10:28,422 basehttp 21304 7756 "GET /api/docs/ HTTP/1.1" 404 3131
+WARNING 2025-12-22 18:10:32,272 log 21304 7756 Not Found: /api/
+WARNING 2025-12-22 18:10:32,273 basehttp 21304 7756 "GET /api/ HTTP/1.1" 404 3116
+WARNING 2025-12-22 18:10:33,476 log 21304 30164 Not Found: /api/
+WARNING 2025-12-22 18:10:33,477 basehttp 21304 30164 "GET /api/ HTTP/1.1" 404 3116
+INFO 2025-12-22 18:10:34,894 basehttp 21304 7756 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:10:35,024 basehttp 21304 7756 "GET /api/forum/ HTTP/1.1" 200 52
+INFO 2025-12-22 18:10:35,149 basehttp 21304 7756 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:10:35,274 basehttp 21304 7756 "GET /api/tutorials/ HTTP/1.1" 200 63
+INFO 2025-12-22 18:10:35,400 basehttp 21304 7756 "GET /api/reports/ HTTP/1.1" 200 57
+WARNING 2025-12-22 18:10:35,538 log 21304 7756 Not Found: /api/docs/
+WARNING 2025-12-22 18:10:35,540 basehttp 21304 7756 "GET /api/docs/ HTTP/1.1" 404 3131
+INFO 2025-12-22 18:16:15,237 autoreload 21304 8584 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 18:16:16,537 autoreload 21584 16596 Watching for file changes with StatReloader
+INFO 2025-12-22 18:16:32,322 autoreload 21584 16596 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 18:16:33,587 autoreload 2004 6044 Watching for file changes with StatReloader
+INFO 2025-12-22 18:18:19,860 autoreload 28156 27100 Watching for file changes with StatReloader
+INFO 2025-12-22 18:21:44,722 autoreload 28156 27100 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\views.py changed, reloading.
+INFO 2025-12-22 18:21:46,707 autoreload 12272 3804 Watching for file changes with StatReloader
+INFO 2025-12-22 18:22:03,239 autoreload 12272 3804 C:\Users\Mohammed\Desktop\new web deepseek\backend\forum\views.py changed, reloading.
+INFO 2025-12-22 18:22:04,606 autoreload 10264 25104 Watching for file changes with StatReloader
+INFO 2025-12-22 18:22:17,236 autoreload 10264 25104 C:\Users\Mohammed\Desktop\new web deepseek\backend\labs\views.py changed, reloading.
+INFO 2025-12-22 18:22:18,764 autoreload 22544 18952 Watching for file changes with StatReloader
+INFO 2025-12-22 18:22:30,217 autoreload 22544 18952 C:\Users\Mohammed\Desktop\new web deepseek\backend\tutorials\views.py changed, reloading.
+INFO 2025-12-22 18:22:31,888 autoreload 31596 2040 Watching for file changes with StatReloader
+INFO 2025-12-22 18:22:42,355 autoreload 31596 2040 C:\Users\Mohammed\Desktop\new web deepseek\backend\reports\views.py changed, reloading.
+INFO 2025-12-22 18:22:43,663 autoreload 26072 28964 Watching for file changes with StatReloader
+INFO 2025-12-22 18:23:00,629 autoreload 26072 28964 C:\Users\Mohammed\Desktop\new web deepseek\backend\users\urls.py changed, reloading.
+INFO 2025-12-22 18:23:02,224 autoreload 24228 11700 Watching for file changes with StatReloader
+INFO 2025-12-22 18:23:15,350 autoreload 24228 11700 C:\Users\Mohammed\Desktop\new web deepseek\backend\forum\urls.py changed, reloading.
+INFO 2025-12-22 18:23:16,700 autoreload 16496 28936 Watching for file changes with StatReloader
+INFO 2025-12-22 18:23:27,110 autoreload 16496 28936 C:\Users\Mohammed\Desktop\new web deepseek\backend\labs\urls.py changed, reloading.
+INFO 2025-12-22 18:23:28,469 autoreload 2612 28216 Watching for file changes with StatReloader
+INFO 2025-12-22 18:23:44,125 autoreload 2612 28216 C:\Users\Mohammed\Desktop\new web deepseek\backend\tutorials\urls.py changed, reloading.
+INFO 2025-12-22 18:23:46,008 autoreload 5180 20476 Watching for file changes with StatReloader
+INFO 2025-12-22 18:23:57,773 autoreload 5180 20476 C:\Users\Mohammed\Desktop\new web deepseek\backend\reports\urls.py changed, reloading.
+INFO 2025-12-22 18:23:59,014 autoreload 19464 17724 Watching for file changes with StatReloader
+INFO 2025-12-22 18:24:39,621 autoreload 19464 17724 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 18:24:40,682 autoreload 2492 6668 Watching for file changes with StatReloader
+INFO 2025-12-22 18:24:54,937 autoreload 26032 22116 Watching for file changes with StatReloader
+INFO 2025-12-22 18:25:04,263 basehttp 26032 11056 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:04,765 basehttp 26032 24456 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:08,282 basehttp 26032 11056 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:08,402 basehttp 26032 11056 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:08,523 basehttp 26032 11056 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:25:08,642 basehttp 26032 11056 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:25:08,782 basehttp 26032 11056 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:25:08,917 basehttp 26032 11056 "GET /api/docs/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:12,125 basehttp 26032 11056 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:12,134 basehttp 26032 11056 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:12,144 basehttp 26032 11056 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:12,153 basehttp 26032 11056 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:12,164 basehttp 26032 11056 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:25:14,304 basehttp 26032 11056 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:14,422 basehttp 26032 11056 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:25:14,548 basehttp 26032 11056 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:25:14,673 basehttp 26032 11056 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:25:14,790 basehttp 26032 11056 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:25:14,920 basehttp 26032 11056 "GET /api/docs/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:15,886 basehttp 26032 24456 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:25:17,469 basehttp 26032 11056 "GET /api/ HTTP/1.1" 200 59
+INFO 2025-12-22 18:44:54,128 basehttp 26032 13792 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-12-22 18:44:54,217 basehttp 26032 13792 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4458
+INFO 2025-12-22 18:44:55,146 basehttp 26032 11356 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-12-22 18:44:55,174 basehttp 26032 11356 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-12-22 18:44:55,177 basehttp 26032 8440 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-12-22 18:44:55,188 basehttp 26032 7216 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-12-22 18:44:55,213 basehttp 26032 8440 "GET /static/admin/css/responsive_rtl.css HTTP/1.1" 200 1991
+INFO 2025-12-22 18:44:55,214 basehttp 26032 9164 "GET /static/admin/css/rtl.css HTTP/1.1" 200 4772
+INFO 2025-12-22 18:44:55,224 basehttp 26032 27372 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-12-22 18:44:55,228 basehttp 26032 13792 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-12-22 18:44:55,256 basehttp 26032 27372 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-12-22 18:44:59,132 basehttp 26032 27372 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4706
+INFO 2025-12-22 18:45:28,984 basehttp 26032 27372 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4706
+INFO 2025-12-22 18:57:08,519 basehttp 26032 18092 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:57:08,553 basehttp 26032 28216 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:57:38,577 basehttp 26032 12340 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:58:08,590 basehttp 26032 27516 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:58:38,589 basehttp 26032 28616 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,076 basehttp 26032 11032 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,089 basehttp 26032 19172 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,103 basehttp 26032 28120 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,115 basehttp 26032 17880 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,152 basehttp 26032 17952 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,171 basehttp 26032 31212 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:17,183 basehttp 26032 19796 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:17,211 basehttp 26032 24456 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:17,214 basehttp 26032 12848 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:17,281 basehttp 26032 14012 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:17,281 basehttp 26032 1528 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:17,297 basehttp 26032 11244 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:24,353 basehttp 26032 31012 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:31,115 basehttp 26032 9356 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:31,128 basehttp 26032 11056 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:31,140 basehttp 26032 22916 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:31,152 basehttp 26032 22368 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:31,164 basehttp 26032 4424 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:36,881 basehttp 26032 28964 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:36,895 basehttp 26032 24464 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:36,896 basehttp 26032 23724 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:36,911 basehttp 26032 31324 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:36,911 basehttp 26032 16488 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:36,928 basehttp 26032 2476 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:36,928 basehttp 26032 18108 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:36,947 basehttp 26032 20580 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:36,948 basehttp 26032 1716 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:36,960 basehttp 26032 29700 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:41,237 basehttp 26032 13836 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:41,254 basehttp 26032 5124 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:41,254 basehttp 26032 356 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:41,270 basehttp 26032 10564 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 18:59:41,270 basehttp 26032 13788 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:41,287 basehttp 26032 13920 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 18:59:41,287 basehttp 26032 19448 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:41,303 basehttp 26032 25200 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 18:59:41,303 basehttp 26032 4576 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:41,319 basehttp 26032 17956 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 18:59:47,093 basehttp 26032 14020 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:00:17,091 basehttp 26032 9704 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:00:47,577 basehttp 26032 19712 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:01:17,573 basehttp 26032 26912 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:01:47,579 basehttp 26032 13088 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:02:17,575 basehttp 26032 9692 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:02:58,486 autoreload 9048 29236 Watching for file changes with StatReloader
+INFO 2025-12-22 19:03:14,984 basehttp 9048 19972 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,008 basehttp 9048 7744 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,027 basehttp 9048 26992 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,045 basehttp 9048 29592 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,101 basehttp 9048 14732 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,121 basehttp 9048 31344 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:03:15,171 basehttp 9048 6000 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:03:15,192 basehttp 9048 29408 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:03:15,283 basehttp 9048 22512 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:03:15,305 basehttp 9048 24596 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:03:15,305 basehttp 9048 11764 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:03:15,337 basehttp 9048 23752 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:03:45,575 basehttp 9048 2712 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:04:15,585 basehttp 9048 23712 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:04:45,586 basehttp 9048 10564 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:05:15,580 basehttp 9048 11984 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:05:45,585 basehttp 9048 27804 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:15,578 basehttp 9048 13936 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,660 basehttp 9048 11976 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,677 basehttp 9048 20580 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,694 basehttp 9048 5416 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,709 basehttp 9048 11836 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,752 basehttp 9048 21928 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,769 basehttp 9048 10200 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:18,803 basehttp 9048 1208 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:06:18,837 basehttp 9048 23184 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:06:18,838 basehttp 9048 1148 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:06:18,857 basehttp 9048 20468 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:06:18,858 basehttp 9048 26608 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:06:18,893 basehttp 9048 28272 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:06:22,780 basehttp 9048 31676 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:23,445 basehttp 9048 29092 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:25,244 basehttp 9048 30712 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:25,699 basehttp 9048 17880 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:25,944 basehttp 9048 2492 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:26,326 basehttp 9048 24548 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:26,569 basehttp 9048 3684 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:26,987 basehttp 9048 15008 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:27,184 basehttp 9048 26976 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:27,370 basehttp 9048 25944 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:27,538 basehttp 9048 22628 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:27,717 basehttp 9048 4780 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:27,887 basehttp 9048 31572 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:28,049 basehttp 9048 17632 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:28,173 basehttp 9048 17680 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:28,368 basehttp 9048 26672 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:28,521 basehttp 9048 13388 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:06:49,580 basehttp 9048 22480 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:07:19,578 basehttp 9048 10220 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:07:25,396 autoreload 9048 29236 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\urls.py changed, reloading.
+INFO 2025-12-22 19:07:26,881 autoreload 31324 5596 Watching for file changes with StatReloader
+INFO 2025-12-22 19:07:49,586 basehttp 31324 14472 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:08:15,228 autoreload 31324 5596 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 19:08:16,080 autoreload 8008 17980 Watching for file changes with StatReloader
+INFO 2025-12-22 19:08:19,590 basehttp 8008 23184 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:08:49,582 basehttp 8008 23476 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:19,581 basehttp 8008 14472 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:33,477 basehttp 8008 15960 "GET / HTTP/1.1" 200 221
+INFO 2025-12-22 19:09:33,507 basehttp 8008 15960 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:33,532 basehttp 8008 15960 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:09:39,010 basehttp 8008 17324 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,027 basehttp 8008 11976 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,040 basehttp 8008 20580 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,055 basehttp 8008 19716 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,107 basehttp 8008 3832 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,131 basehttp 8008 5416 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:09:39,135 basehttp 8008 11836 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:09:39,221 basehttp 8008 23184 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:09:39,221 basehttp 8008 1116 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:09:39,238 basehttp 8008 20468 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:09:39,238 basehttp 8008 29808 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:09:39,253 basehttp 8008 1148 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:10:08,776 basehttp 8008 31656 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:10:08,792 basehttp 8008 20240 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:10:08,795 basehttp 8008 23812 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:10:08,813 basehttp 8008 19060 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:10:08,813 basehttp 8008 1728 "GET /api/forum/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:10:08,830 basehttp 8008 4348 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:10:08,831 basehttp 8008 3436 "GET /api/labs/ HTTP/1.1" 200 43
+INFO 2025-12-22 19:10:08,849 basehttp 8008 23476 "GET /api/tutorials/ HTTP/1.1" 200 48
+INFO 2025-12-22 19:10:08,850 basehttp 8008 29060 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:10:08,883 basehttp 8008 31084 "GET /api/reports/ HTTP/1.1" 200 46
+INFO 2025-12-22 19:10:09,021 basehttp 8008 4664 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:10:39,575 basehttp 8008 22560 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:11:09,580 basehttp 8008 9372 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:11:39,762 basehttp 8008 18088 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:12:09,579 basehttp 8008 11572 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 19:12:39,585 basehttp 8008 18404 "GET /api/users/ HTTP/1.1" 200 44
+INFO 2025-12-22 20:48:34,384 autoreload 11292 15276 Watching for file changes with StatReloader
+INFO 2025-12-22 20:48:37,964 basehttp 11292 24180 "GET / HTTP/1.1" 200 221
+INFO 2025-12-22 20:48:54,105 basehttp 11292 24180 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-12-22 20:48:54,483 basehttp 11292 24180 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4458
+INFO 2025-12-22 20:49:05,366 basehttp 11292 24180 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-12-22 20:49:05,501 basehttp 11292 24180 "GET /admin/ HTTP/1.1" 200 22498
+INFO 2025-12-22 20:49:05,732 basehttp 11292 24180 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-12-22 20:49:05,761 basehttp 11292 29008 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-12-22 20:49:05,769 basehttp 11292 19032 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-12-22 20:49:05,769 basehttp 11292 24180 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+ERROR 2025-12-22 20:49:21,393 log 11292 24180 Internal Server Error: /admin/reports/reportstatushistory/
+Traceback (most recent call last):
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: reports_reportstatushistory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+           ^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 146, in __init__
+    self.get_results(request)
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 313, in get_results
+    result_count = paginator.count
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\models\query.py", line 606, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohammed\Desktop\new web deepseek\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: reports_reportstatushistory
+ERROR 2025-12-22 20:49:21,424 basehttp 11292 24180 "GET /admin/reports/reportstatushistory/ HTTP/1.1" 500 200758
+INFO 2025-12-22 20:49:31,231 basehttp 11292 24180 "GET /admin/ HTTP/1.1" 200 22498
+INFO 2025-12-22 21:10:54,490 autoreload 11292 15276 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.
+INFO 2025-12-22 21:10:55,953 autoreload 23988 26948 Watching for file changes with StatReloader
+INFO 2025-12-22 21:17:06,075 autoreload 23988 26948 C:\Users\Mohammed\Desktop\new web deepseek\backend\cyberlabs\settings.py changed, reloading.

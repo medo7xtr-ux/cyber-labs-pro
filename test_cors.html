@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار CORS واتصال Frontend</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; direction: rtl; }
+        .result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .loading { background-color: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { background-color: #0056b3; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔗 اختبار اتصال Frontend مع Backend</h1>
+    <p>Backend: <code>http://127.0.0.1:8000</code></p>
+    
+    <div class="test-section">
+        <h2>اختبار الاتصال الأساسي</h2>
+        <button onclick="testBasicConnection()">اختبار الاتصال</button>
+        <div id="basicResult" class="result loading">لم يتم الاختبار بعد</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>اختبار CORS</h2>
+        <button onclick="testCORS()">اختبار CORS</button>
+        <div id="corsResult" class="result loading">لم يتم الاختبار بعد</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>اختبار APIs</h2>
+        <button onclick="testAllAPIs()">اختبار جميع APIs</button>
+        <div id="apisResult" class="result">النتائج ستظهر هنا</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>اختبار Frontend لوحدها</h2>
+        <button onclick="testFrontend()">اختبار Frontend</button>
+        <div id="frontendResult" class="result loading">لم يتم الاختبار بعد</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>إنشاء تقرير اتصال</h2>
+        <button onclick="generateReport()">إنشاء تقرير</button>
+        <pre id="report" style="background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 300px; overflow: auto;"></pre>
+    </div>
+    
+    <script>
+        const backendURL = 'http://127.0.0.1:8000';
+        const frontendURL = window.location.origin;
+        
+        function updateResult(elementId, message, isSuccess) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `result ${isSuccess ? 'success' : 'error'}`;
+        }
+        
+        async function testBasicConnection() {
+            updateResult('basicResult', 'جاري الاختبار...', null);
+            
+            try {
+                const response = await fetch(`${backendURL}/api/`);
+                if (response.ok) {
+                    updateResult('basicResult', '✅ Backend متصل ويعمل بشكل صحيح', true);
+                } else {
+                    updateResult('basicResult', `❌ Backend متصل لكن برمز خطأ: ${response.status}`, false);
+                }
+            } catch (error) {
+                updateResult('basicResult', `❌ خطأ في الاتصال: ${error.message}`, false);
+            }
+        }
+        
+        async function testCORS() {
+            updateResult('corsResult', 'جاري اختبار CORS...', null);
+            
+            try {
+                const response = await fetch(`${backendURL}/api/`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'include',
+                    headers: {
+                        'Origin': frontendURL
+                    }
+                });
+                
+                const corsHeaders = {
+                    'Access-Control-Allow-Origin': response.headers.get('Access-Control-Allow-Origin'),
+                    'Access-Control-Allow-Credentials': response.headers.get('Access-Control-Allow-Credentials'),
+                    'Access-Control-Allow-Methods': response.headers.get('Access-Control-Allow-Methods'),
+                    'Access-Control-Allow-Headers': response.headers.get('Access-Control-Allow-Headers')
+                };
+                
+                let message = 'نتائج CORS:\n';
+                for (const [key, value] of Object.entries(corsHeaders)) {
+                    message += `${key}: ${value || 'غير موجود'}\n`;
+                }
+                
+                if (corsHeaders['Access-Control-Allow-Origin']) {
+                    updateResult('corsResult', `✅ CORS مفعل\n${message}`, true);
+                } else {
+                    updateResult('corsResult', `⚠️ CORS قد لا يكون مفعل بشكل صحيح\n${message}`, false);
+                }
+            } catch (error) {
+                updateResult('corsResult', `❌ خطأ في CORS: ${error.message}`, false);
+            }
+        }
+        
+        async function testAllAPIs() {
+            const apis = [
+                { name: 'المستخدمين', endpoint: '/api/users/' },
+                { name: 'المنتدى', endpoint: '/api/forum/' },
+                { name: 'المختبرات', endpoint: '/api/labs/' },
+                { name: 'الدروس', endpoint: '/api/tutorials/' },
+                { name: 'التقارير', endpoint: '/api/reports/' },
+                { name: 'التوثيق', endpoint: '/api/docs/' }
+            ];
+            
+            let results = 'نتائج اختبار APIs:\n\n';
+            
+            for (const api of apis) {
+                try {
+                    const response = await fetch(`${backendURL}${api.endpoint}`);
+                    const status = response.status;
+                    const statusText = response.statusText;
+                    
+                    if (response.ok) {
+                        results += `✅ ${api.name}: ${status} ${statusText}\n`;
+                    } else {
+                        results += `❌ ${api.name}: ${status} ${statusText}\n`;
+                    }
+                } catch (error) {
+                    results += `❌ ${api.name}: خطأ - ${error.message}\n`;
+                }
+                
+                // انتظر قليلاً بين الطلبات
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            document.getElementById('apisResult').textContent = results;
+            document.getElementById('apisResult').className = 'result';
+        }
+        
+        function testFrontend() {
+            const frontendChecks = [
+                { name: 'JavaScript مفعل', check: () => true },
+                { name: 'Console يعمل', check: () => typeof console !== 'undefined' },
+                { name: 'Fetch API متاح', check: () => typeof fetch !== 'undefined' },
+                { name: 'موقع Frontend', check: () => window.location.origin },
+                { name: 'متصفح يدعم CORS', check: () => 'credentials' in Request.prototype }
+            ];
+            
+            let results = 'نتائج اختبار Frontend:\n\n';
+            
+            frontendChecks.forEach(check => {
+                try {
+                    const result = check.check();
+                    if (result) {
+                        results += `✅ ${check.name}: ${result === true ? 'نعم' : result}\n`;
+                    } else {
+                        results += `❌ ${check.name}: لا\n`;
+                    }
+                } catch (error) {
+                    results += `❌ ${check.name}: خطأ - ${error.message}\n`;
+                }
+            });
+            
+            updateResult('frontendResult', results, true);
+        }
+        
+        async function generateReport() {
+            const reportElement = document.getElementById('report');
+            reportElement.textContent = 'جاري إنشاء التقرير...';
+            
+            const report = {
+                timestamp: new Date().toLocaleString('ar-SA'),
+                frontend: {
+                    url: window.location.origin,
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform
+                },
+                backend: {
+                    url: backendURL,
+                    status: 'جاري الاختبار'
+                },
+                apis: [],
+                cors: {},
+                recommendations: []
+            };
+            
+            // اختبار Backend
+            try {
+                const backendResponse = await fetch(`${backendURL}/api/`);
+                report.backend.status = `${backendResponse.status} ${backendResponse.statusText}`;
+            } catch (error) {
+                report.backend.status = `خطأ: ${error.message}`;
+                report.recommendations.push('✅ تأكد من تشغيل Backend على المنفذ 8000');
+            }
+            
+            // اختبار CORS
+            try {
+                const corsResponse = await fetch(`${backendURL}/api/`, { mode: 'cors' });
+                report.cors = {
+                    'Access-Control-Allow-Origin': corsResponse.headers.get('Access-Control-Allow-Origin'),
+                    'Access-Control-Allow-Credentials': corsResponse.headers.get('Access-Control-Allow-Credentials'),
+                    status: 'CORS مفعل'
+                };
+            } catch (error) {
+                report.cors = { status: `CORS خطأ: ${error.message}` };
+                report.recommendations.push('✅ تحقق من إعدادات CORS في settings.py');
+            }
+            
+            // اختبار APIs
+            const testApis = [
+                { name: 'users', endpoint: '/api/users/' },
+                { name: 'forum', endpoint: '/api/forum/' },
+                { name: 'labs', endpoint: '/api/labs/' }
+            ];
+            
+            for (const api of testApis) {
+                try {
+                    const response = await fetch(`${backendURL}${api.endpoint}`);
+                    report.apis.push({
+                        name: api.name,
+                        status: response.status,
+                        ok: response.ok
+                    });
+                } catch (error) {
+                    report.apis.push({
+                        name: api.name,
+                        status: `خطأ: ${error.message}`,
+                        ok: false
+                    });
+                }
+            }
+            
+            // اقتراحات بناءً على النتائج
+            if (!report.backend.status.includes('200')) {
+                report.recommendations.push('🚀 قم بتشغيل Backend: python manage.py runserver');
+            }
+            
+            if (!report.cors['Access-Control-Allow-Origin']) {
+                report.recommendations.push('🔧 تأكد من CORS_ALLOW_ALL_ORIGINS = True في settings.py');
+            }
+            
+            const failedApis = report.apis.filter(api => !api.ok);
+            if (failedApis.length > 0) {
+                report.recommendations.push('📝 تحقق من إعدادات URLs في cyberlabs/urls.py');
+            }
+            
+            // عرض التقرير
+            reportElement.textContent = JSON.stringify(report, null, 2);
+        }
+        
+        // تشغيل الاختبارات تلقائياً عند تحميل الصفحة
+        window.onload = function() {
+            testBasicConnection();
+            setTimeout(testCORS, 500);
+            setTimeout(testFrontend, 1000);
+        };
+    </script>
+</body>
+</html>

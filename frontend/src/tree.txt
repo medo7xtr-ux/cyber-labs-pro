@@ -1,0 +1,63 @@
+Folder PATH listing for volume System
+Volume serial number is 52D8-FE80
+C:.
+¦   App.css
+¦   App.jsx
+¦   index.css
+¦   main.jsx
+¦   tree.txt
+¦   
++---assets
+¦       react.svg
+¦       
++---components
+¦   +---achievements
+¦   ¦       AchievementBadge.jsx
+¦   ¦       
+¦   +---common
+¦   ¦       Button.jsx
+¦   ¦       LoadingSpinner.jsx
+¦   ¦       
+¦   +---labs
+¦   ¦       LabCard.jsx
+¦   ¦       LabDetail.jsx
+¦   ¦       LabInterface.jsx
+¦   ¦       LabReview.jsx
+¦   ¦       
+¦   +---layout
+¦   ¦       Footer.jsx
+¦   ¦       Layout.jsx
+¦   ¦       Navbar.jsx
+¦   ¦       
+¦   +---New folder
+¦           Leaderboard.jsx
+¦           
++---config
+¦       api.js
+¦       
++---context
+¦       AuthContext.jsx
+¦       
++---contexts
+¦       AuthContext.jsx
+¦       
++---pages
+¦       Dashboard.jsx
+¦       Home.jsx
+¦       LabDetail.jsx
+¦       Labs.jsx
+¦       Login.jsx
+¦       NotFound.jsx
+¦       Register.jsx
+¦       Reports.jsx
+¦       SubscriptionPlans.jsx
+¦       Tutorials.jsx
+¦       
++---services
+¦       api.js
+¦       auth.js
+¦       labs.js
+¦       
++---styles
+        theme.js
+        

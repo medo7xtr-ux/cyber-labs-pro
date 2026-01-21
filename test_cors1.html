@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>🔗 اختبار اتصال Backend</h1>
+    <div id="result"></div>
+    <script>
+        async function test() {
+            const result = document.getElementById('result');
+            const tests = [
+                { name: 'Backend Root', url: 'http://127.0.0.1:8000/' },
+                { name: 'API Users', url: 'http://127.0.0.1:8000/api/users/' },
+                { name: 'API Labs', url: 'http://127.0.0.1:8000/api/labs/' },
+            ];
+            
+            for (const test of tests) {
+                try {
+                    const res = await fetch(test.url);
+                    const text = await res.text();
+                    result.innerHTML += `
+                        <p style="color: green;">
+                            ✅ ${test.name}: ${res.status} - ${text.substring(0,50)}...
+                        </p>
+                    `;
+                } catch (err) {
+                    result.innerHTML += `
+                        <p style="color: red;">
+                            ❌ ${test.name}: ${err.message}
+                        </p>
+                    `;
+                }
+            }
+        }
+        test();
+    </script>
+</body>
+</html>
